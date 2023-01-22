@@ -1,9 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:sortify/main.dart';
 import 'package:sortify/screens/home_screen.dart';
 import 'package:sortify/screens/registration_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -47,11 +46,14 @@ class _LoginScreenState extends State<LoginScreen> {
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
-          prefixIcon: Icon(Icons.mail),
+          prefixIcon: Icon(Icons.mail, color: Colors.white,),
           contentPadding: EdgeInsets.fromLTRB(20, 15,20, 15),
           hintText: "Email",
+          hintStyle: TextStyle(color: Colors.white),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
+
+            borderSide: new BorderSide(color: Colors.white, width: 2.0),
           )
 
       ),
@@ -78,22 +80,24 @@ class _LoginScreenState extends State<LoginScreen> {
       },
       textInputAction: TextInputAction.done,
       decoration: InputDecoration(
-          prefixIcon: Icon(Icons.vpn_key),
+          prefixIcon: Icon(Icons.vpn_key,color: Colors.white,),
           contentPadding: EdgeInsets.fromLTRB(20, 15,20, 15),
           hintText: "Password",
+          hintStyle: TextStyle(color: Colors.white),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: Colors.white),
           )
 
       ),
 
     );
     final loginButton =Material(
-      color: Colors.lightBlue,
+      color: kprimarygreen,
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
       child: MaterialButton(
-        splashColor: Colors.blueAccent,
+        splashColor: Colors.greenAccent,
         padding: EdgeInsets.fromLTRB(20, 15,20, 15),
         minWidth: MediaQuery.of(context).size.width,
 
@@ -112,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     );
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: Center(
         child: SingleChildScrollView(
           child: Container(
@@ -124,6 +128,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
+                    Text(
+                      'Login Page',
+                      style: TextStyle(color: kprimarygreen, fontSize: 30, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 35),
                     emailField,
                     SizedBox(height: 25,),
                     passwordField,
@@ -134,14 +143,16 @@ class _LoginScreenState extends State<LoginScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Don't have an account?"),
+                        Text("Don't have an account?", style: TextStyle(
+                          color: Colors.white,
+                        ),),
                         GestureDetector(
                           onTap: (){
                             Navigator.push(context, MaterialPageRoute(builder: (context) => RegistrationScreen()));
                           },
-                          child: Text("Singup",
+                          child: Text("Signup",
                             style: TextStyle(
-                              color: Colors.blueAccent,
+                              color: kprimarygreen,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
