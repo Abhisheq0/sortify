@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sortify/model/user_model.dart';
 
+import 'package:sortify/redirecting pages/trendings.dart';
 import 'login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -43,6 +44,32 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              MaterialButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => songHomePage()),
+                  );
+                },
+                child: Text("Go to Song Home Page"),
+              ),
+
+              // Expanded(
+              //   child: Container(
+              //     child: RaisedButton(
+              //       child: Text('Trending'),
+              //       onPressed: () {
+              //         Navigator.push(
+              //           context,
+              //           MaterialPageRoute(builder: (context) => songHomePage()),
+              //         );
+              //       },
+              //
+              //     ),
+              //   ),
+              // ),
 
               Text(
                 "Welcome Back",
